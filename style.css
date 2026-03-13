@@ -2,10 +2,19 @@
   --font1: "Antonio", sans-serif;
   --font2: "Anton SC", sans-serif;
   --font3: "Oswald", sans-serif;
+  --font4: "Teko", sans-serif;
+
+  /* color palette */
+  --yellow: #ffcd35;
+  --yellow-dark: #e6b800;
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --red: #e8272f;
+  --red-dark: #b01d24;
+  --cream: #fff8e7;
+  --gray: #f2f2f2;
+  --gray-dark: #666;
 }
-
-
-
 
 * {
   margin: 0;
@@ -16,14 +25,19 @@
 body {
   min-height: 100vh;
   /* background: linear-gradient(to top, #ec8bf5 0%, #ec8bf5 5%, #ffffff 100%); */
-  background: linear-gradient(to top, #655ce5 0%, #655ce5 5%, #ffadf8 100%);
+  /* background: linear-gradient(to top, #655ce5 0%, #655ce5 5%, #ffadf8 100%); */
+  /* background: linear-gradient(to top, #96fcff 0%, #ffff 50% ,#ffff 100%); */
+  /* background: linear-gradient(to top, #ffcd35 0%, #ffffff 50%, #ffffff 100%); */
+  /* background: linear-gradient(to top, #f0ff4a 0%, #ffff 50% ,#ffff 100%); */
 }
 
 /* top bar */
 .topbar {
   background-color: rgb(0, 0, 0);
   /* border-bottom: 2px solid white; */
-  color: greenyellow;
+  color: rgb(255, 248, 105);
+  font-family: var(--font1);
+  font-weight: 400;
   text-align: center;
   padding: 8px 10px;
   font-size: 14px;
@@ -31,6 +45,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 3;
 }
 
 .logo {
@@ -49,13 +64,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; 
+  z-index: -1;
 }
 
 /* navigasi */
 .navbar {
-  background-color: white;
-  border: 2px solid black;
+  background-color: var(--cream);
+  border: 2px solid var(--black);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,6 +83,7 @@ body {
   left: 0;
   right: 0;
   margin: 0 auto;
+  z-index: 2;
 }
 
 .hamburger {
@@ -95,6 +111,15 @@ body {
 }
 
 /* hero */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to top, #ffcd35 0%, #ffffff 55%, #ffffff 100%);
+  overflow: hidden;
+  z-index: -2;
+}
+
 .title {
   text-align: center;
   position: absolute;
@@ -149,4 +174,354 @@ body {
 .header-btn:hover {
   background-color: black;
   color: white;
+}
+
+
+/* kelebihan */
+.keunggulan {
+  background-color: var(--black);
+  padding: 100px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* dekorasi kanji besar di belakang */
+.keunggulan::before {
+  content: "麺";
+  position: absolute;
+  font-size: 400px;
+  color: rgba(255, 205, 53, 0.06);
+  font-family: var(--font2);
+  top: -60px;
+  right: -40px;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.keunggulan-badge {
+  display: inline-block;
+  background-color: var(--yellow);
+  color: var(--black);
+  font-family: var(--font2);
+  font-size: 28px;
+  padding: 4px 18px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 2px solid var(--yellow-dark);
+}
+
+.keunggulan-title {
+  font-family: var(--font2);
+  font-weight: 500;
+  font-size: 5rem;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.keunggulan-sub {
+  font-family: var(--font3);
+  font-size: 25px;
+  color: #aaaaaa;
+  /* color: var(--black); */
+  margin-bottom: 60px;
+  font-weight: 300;
+}
+
+.keunggulan-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.keunggulan-card {
+  background-color: #111111;
+  border: 2px solid #222;
+  border-radius: 12px;
+  padding: 32px 20px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.keunggulan-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--yellow);
+}
+
+.keunggulan-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.keunggulan-card:hover::after {
+  transform: scaleX(1);
+}
+
+.k-icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--yellow);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border: 2px solid var(--yellow-dark);
+}
+
+.k-icon i,
+.k-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--black);
+  stroke-width: 2;
+}
+
+.menu-icon {
+  width: 72px !important;
+  height: 72px !important;
+  stroke: white !important;
+  stroke-width: 1.5 !important;
+  opacity: 0.9;
+}
+
+.menu-img-placeholder svg {
+  width: 72px;
+  height: 72px;
+  stroke: white;
+  stroke-width: 1.5;
+  opacity: 0.9;
+}
+
+.btn-icon {
+  width: 18px !important;
+  height: 18px !important;
+  vertical-align: middle;
+  margin-left: 6px;
+  stroke: var(--black) !important;
+  stroke-width: 2 !important;
+}
+
+.keunggulan-card h3 {
+  font-family: var(--font4);
+  font-size: 35px;
+  font-weight: 500;
+  color: var(--yellow);
+  margin-bottom: 10px;
+}
+
+.keunggulan-card p {
+  font-family: var(--font3);
+  font-size: 19px;
+  color: #bbbbbb;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* menu kami */
+.menu {
+  background-image: url('img/img.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* .menu::before {
+  content: "食";
+  position: absolute;
+  font-size: 380px;
+  color: rgba(0, 0, 0, 0.04);
+  font-family: var(--font2);
+  bottom: -60px;
+  left: -40px;
+  pointer-events: none;
+  line-height: 1;
+} */
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.menu-kanji {
+  font-family: var(--font1);
+  font-size: 22px;
+  color: var(--red);
+  letter-spacing: 6px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.menu-title {
+  font-family: var(--font2);
+  font-size: 60px;
+  color: var(--black);
+  margin-bottom: 10px;
+  line-height: 1.05;
+}
+
+.menu-sub {
+  font-family: var(--font3);
+  font-size: 18px;
+  color: var(--gray-dark);
+  font-weight: 300;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 50px;
+}
+
+.menu-card {
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 var(--black);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--black);
+}
+
+.menu-img-wrap {
+  position: relative;
+}
+
+.menu-img-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: var(--red);
+  color: white;
+  font-family: var(--font3);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.menu-badge.spicy {
+  background-color: #ff4500;
+}
+
+.menu-badge.vegan {
+  background-color: #2ecc71;
+}
+
+.menu-info {
+  padding: 22px 22px 20px;
+}
+
+.menu-tag {
+  font-family: var(--font3);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--red);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.menu-name {
+  font-family: var(--font2);
+  font-size: 22px;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.menu-desc {
+  font-family: var(--font3);
+  font-size: 14px;
+  color: var(--gray-dark);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+
+.menu-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-price {
+  font-family: var(--font1);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.menu-btn {
+  background-color: var(--yellow);
+  color: var(--black);
+  border: 2px solid var(--black);
+  font-family: var(--font3);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--black);
+  transition: all 0.15s ease;
+}
+
+.menu-btn:hover {
+  background-color: var(--black);
+  color: var(--yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--yellow-dark);
+}
+
+.menu-cta-wrap {
+  text-align: center;
+}
+
+.menu-cta-btn {
+  background-color: var(--black);
+  color: var(--yellow);
+  border: 2px solid var(--black);
+  font-family: var(--font3);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 8px 8px 0 var(--yellow);
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.menu-cta-btn:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--yellow);
 }

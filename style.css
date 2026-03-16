@@ -546,6 +546,7 @@ body {
   box-shadow: 12px 12px 0 var(--yellow);
 }
 
+
 /* cara masak */
 .cara-masak {
   background-color: var(--yellow);
@@ -655,3 +656,4 @@ body {
   padding: 4px 0;
   padding-left: 90px;
 }
+

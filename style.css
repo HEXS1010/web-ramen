@@ -24,6 +24,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -116,6 +120,7 @@ body {
   border: none;
   cursor: pointer;
   color: black;
+  padding: 0 5px;
 }
 
 /* .brand {
@@ -151,6 +156,118 @@ body {
   background: var(--yellow);
   color: var(--black);
   border-color: var(--black);
+}
+
+/* cart icon nav */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cart-icon {
+  font-size: 20px;
+  cursor: pointer;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  padding: 7px;
+  margin-right: 10px;
+  background: var(--cream);
+  box-shadow: 3px 3px 0 var(--black);
+  transition: all 0.15s ease;
+}
+
+.cart-icon:hover {
+  background: var(--yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+/* CART SIDEBAR */
+.cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.cart-overlay.active {
+  display: block;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100vh;
+  width: 500px;
+  height: 100vh;
+  background: var(--cream);
+  border-left: 2px solid var(--black);
+  box-shadow: -3px 0 0 var(--black);
+  transition: 0.3s;
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* AKTIF */
+.cart-sidebar.active {
+  right: 0;
+}
+
+/* HEADER */
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 2px solid var(--black);
+  font-family: var(--font2);
+  letter-spacing: 1.5px;
+}
+
+.cart-header button {
+  border: 2px solid var(--black);
+  background: var(--white);
+  padding: 4px 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--black);
+}
+
+/* CONTENT */
+.cart-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.empty-text {
+  text-align: center;
+  margin-top: 60px;
+  font-family: var(--font3);
+}
+
+/* FOOTER */
+.cart-footer {
+  padding: 10px 19px;
+  border-top: 2px solid var(--black);
+  margin-bottom: 28px;
+}
+
+.cart-footer p {
+  padding: 10px 0;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--yellow);
+  border: 2px solid var(--black);
+  font-family: var(--font3);
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--black);
 }
 
 /* sidebar */
@@ -277,9 +394,11 @@ body {
 }
 
 .socmed-icon {
-  width: 42px;
-  height: 42px;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
   border: 2px solid var(--black);
+  text-decoration: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -314,15 +433,15 @@ body {
 }
 
 .star {
-  font-size: 40px;
-  color: gold;
+  font-size: 30px;
+  color: rgb(255, 217, 0);
   margin-bottom: 10px;
 }
 
 .header-up {
   font-size: 30px;
   color: black;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   font-weight: 700;
   font-family: var(--font3);
 }
@@ -341,6 +460,7 @@ body {
   font-weight: 400;
   font-family: var(--font2);
   padding: 0 20px;
+  line-height: 1.15;
 }
 
 .header-btn {
@@ -396,7 +516,7 @@ body {
 .superiority-sub {
   font-family: var(--font3);
   font-size: 25px;
-  color: #aaaaaa;
+  color: var(--white);
   /* color: var(--black); */
   margin-bottom: 60px;
   font-weight: 300;
@@ -454,38 +574,38 @@ body {
   border: 2px solid var(--yellow-dark);
 }
 
-.k-icon i,
-.k-icon svg {
-  width: 26px;
-  height: 26px;
+.k-icon {
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
   stroke: var(--black);
   stroke-width: 2;
 }
 
-.menu-icon {
+/* .menu-icon {
   width: 72px !important;
   height: 72px !important;
   stroke: white !important;
   stroke-width: 1.5 !important;
   opacity: 0.9;
-}
+} */
 
-.menu-img-placeholder svg {
+/* .menu-img-placeholder svg {
   width: 72px;
   height: 72px;
   stroke: white;
   stroke-width: 1.5;
   opacity: 0.9;
-}
+} */
 
-.btn-icon {
+/* .btn-icon {
   width: 18px !important;
   height: 18px !important;
   vertical-align: middle;
   margin-left: 6px;
   stroke: var(--black) !important;
   stroke-width: 2 !important;
-}
+} */
 
 .superiority-card h3 {
   font-family: var(--font4);
@@ -498,7 +618,7 @@ body {
 .superiority-card p {
   font-family: var(--font3);
   font-size: 19px;
-  color: #bbbbbb;
+  color: var(--white);
   line-height: 1.6;
   font-weight: 300;
 }
@@ -854,7 +974,7 @@ body {
 }
 
 .testi-stars {
-  font-size: 22px;
+  font-size: 20px;
   color: var(--yellow);
   margin-bottom: 14px;
 }
@@ -1129,15 +1249,11 @@ body {
   letter-spacing: 2px;
 }
 
-/* =============================================
-   RESPONSIVE CSS - Tambahkan ke bawah style.css
-   Breakpoints:
-   - Mobile  : max-width 768px
-   - Tablet  : 769px – 1024px
-   - Desktop : 1025px ke atas (sudah ada)
-   ============================================= */
+/*Mobile  : max-width 768px
+Tablet  : 769px – 1024px
+Desktop : 1025px ke atas */
 
-/* ─── 1. NAVBAR ─────────────────────────────── */
+/* navbar */
 @media (max-width: 1024px) {
   .navbar {
     width: calc(100% - 32px);
@@ -1183,10 +1299,14 @@ body {
     margin-top: 7rem;
     width: 120px;
   }
+
+  .shop-link {
+    font-size: 14;
+    padding: 7.5px 12px;
+  }
 }
 
-/* ─── 2. HERO ────────────────────────────────── */
-/* Gambar hero tidak diubah, hanya font disesuaikan */
+/* header */
 @media (max-width: 1024px) {
   .header-title {
     font-size: 20px;
@@ -1236,53 +1356,7 @@ body {
   }
 }
 
-/* @media (max-width: 1024px) {
-  .header-title {
-    font-size: 48px;
-  }
-
-  .header-up {
-    font-size: 24px;
-  }
-
-  .header-under {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header-title {
-    font-size: 36px;
-    padding: 0 1px;
-    line-height: 1.15;
-  }
-
-  .header-up {
-    font-size: 15px;
-  }
-
-  .header-under {
-    font-size: 14px;
-    padding: 5px 0;
-  }
-
-  .star {
-    font-size: 25px;
-  }
-
-  .header-btn {
-    font-size: 13px;
-    padding: 8px 16px;
-    box-shadow: 6px 7px 0 black;
-    margin: 8px 6px;
-  }
-
-  .title {
-    width: 90%;
-  }
-} */
-
-/* ─── 3. KEUNGGULAN ──────────────────────────── */
+/* keunggulan */
 @media (max-width: 1024px) {
   .superiority {
     padding: 70px 40px;
@@ -1297,7 +1371,6 @@ body {
     gap: 20px;
   }
 
-  /* Judul tetap di kiri */
   .superiority-badge,
   .superiority-title,
   .superiority-sub {
@@ -1346,8 +1419,7 @@ body {
   }
 }
 
-/* ─── 4. MENU ────────────────────────────────── */
-/* Background tidak terpengaruh, hanya grid kotaknya */
+/* menu */
 @media (max-width: 1024px) {
   .menu {
     padding: 70px 40px;
@@ -1386,8 +1458,7 @@ body {
   }
 }
 
-/* ─── 5. CARA MASAK ──────────────────────────── */
-/* Background tidak terpengaruh, gambar tetap di kiri teks di kanan */
+/* cara masak */
 @media (max-width: 1024px) {
   .steps {
     padding: 70px 40px;
@@ -1449,7 +1520,7 @@ body {
   }
 }
 
-/* ─── 6. TESTIMONI ───────────────────────────── */
+/* testimoni */
 @media (max-width: 1024px) {
   .testimoni {
     padding: 70px 40px;
@@ -1500,7 +1571,7 @@ body {
   }
 }
 
-/* ─── 7. CTA BANNER ──────────────────────────── */
+/* banner */
 @media (max-width: 1024px) {
   .cta-banner {
     padding: 70px 60px;
@@ -1520,7 +1591,7 @@ body {
   .cta-deco {
     margin-right: 0;
     margin-top: 30px;
-    order: 2; /* gambar ke bawah */
+    order: 2;
   }
 
   .cta-img {
@@ -1567,7 +1638,7 @@ body {
   .cta-deco {
     margin-right: 0;
     margin-top: 30px;
-    order: 2; /* gambar tetap ke bawah */
+    order: 2;
   }
 
   .cta-img {
@@ -1575,7 +1646,7 @@ body {
   }
 }
 
-/* ─── 8. FOOTER ──────────────────────────────── */
+/* footer */
 @media (max-width: 1024px) {
   .footer {
     padding: 50px 40px 24px;
@@ -1586,7 +1657,6 @@ body {
     gap: 36px;
   }
 
-  /* Kolom brand ambil full baris pertama */
   .footer-top > *:first-child {
     grid-column: 1 / -1;
   }
@@ -1635,7 +1705,7 @@ body {
   }
 }
 
-/* ─── SIDEBAR (tetap rapi di semua ukuran) ────── */
+/* sidebar */
 @media (max-width: 768px) {
   .sidebar {
     width: 80%;
@@ -1653,4 +1723,37 @@ body {
   .sidebar-item {
     font-size: 25px;
   }
+}
+
+/* sidebar cart */
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 80%;
+  }
+
+  .sidebar-logo {
+    width: 120px;
+  }
+
+  .sidebar-brand {
+    font-size: 23px;
+  }
+
+  .sidebar-item {
+    font-size: 25px;
+  }
+}
+
+/* card icon */
+@media (max-width: 768px) {
+  .nav-right{
+    gap: 7px;
+
+  }
+  .cart-icon {
+    font-size: 13px;
+    margin-right: 0;
+  }
+
+
 }

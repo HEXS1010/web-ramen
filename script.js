@@ -11,3 +11,18 @@ function toggleSidebar() {
     document.body.style.overflow = "";
   }
 }
+
+// toggle card
+function toggleCart() {
+  const cart = document.getElementById("cartSidebar");
+  const overlay = document.getElementById("cartOverlay");
+
+  cart.classList.toggle("active");
+  overlay.classList.toggle("active");
+
+  if (cart.classList.contains("active")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+}

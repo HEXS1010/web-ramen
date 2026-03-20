@@ -176,25 +176,21 @@ body {
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -400px;
-  width: 350px;
-  height: 100%;
+  right: -100%; 
+  width: min(420px, 90%);
+  height: 100vh;
   background: var(--cream);
   border-left: 2px solid var(--black);
-  box-shadow: -8px 0 0 var(--black);
-  transition: 0.3s;
-  z-index: 999;
-
-  display: flex;
-  flex-direction: column;
+  box-shadow: -6px 0 0 var(--black);
+  z-index: 9999; 
+  transition: right 0.5s ease;
+  font-family: "Oswald", sans-serif;
 }
 
-/* AKTIF */
 .cart-sidebar.active {
   right: 0;
 }
 
-/* HEADER */
 .cart-header {
   display: flex;
   justify-content: space-between;
@@ -204,15 +200,51 @@ body {
   font-family: var(--font2);
 }
 
-.cart-header button {
-  border: 2px solid var(--black);
-  background: var(--white);
-  padding: 4px 10px;
-  cursor: pointer;
-  box-shadow: 3px 3px 0 var(--black);
+.cart-header h2 {
+  font-family: "Anton SC", sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
 }
 
-/* CONTENT */
+.cart-item-name {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+}
+
+.cart-item-price {
+  font-family: "Teko", sans-serif;
+  font-size: 18px;
+}
+
+.cart-header button {
+  border: 2px solid var(--black);
+  background: var(--yellow);
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--black);
+  font-weight: bold;
+  transition: all 0.20s ease;
+}
+
+
+.cart-header button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0 var(--black);
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 9998;
+  display: none;
+}
+
+.cart-overlay.active {
+  display: block;
+}
+
+
 .cart-content {
   flex: 1;
   padding: 20px;
@@ -225,7 +257,7 @@ body {
   font-family: var(--font3);
 }
 
-/* FOOTER */
+
 .cart-footer {
   padding: 16px;
   border-top: 2px solid var(--black);
@@ -239,6 +271,22 @@ body {
   font-family: var(--font3);
   cursor: pointer;
   box-shadow: 4px 4px 0 var(--black);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.remove-btn {
+  background: #ffd54f;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .shop-link:hover {

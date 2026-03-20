@@ -3,8 +3,12 @@
   --font2: "Anton SC", sans-serif;
   --font3: "Oswald", sans-serif;
   --font4: "Teko", sans-serif;
+  /* antonio: 100-700  */
+  /* anton sc: 400 */
+  /* oswald: 200-700 */
+  /* teko: 300-700 */
 
-  /* color palette */
+  /* color */
   --yellow: #ffcd35;
   --yellow-dark: #e6b800;
   --black: #0a0a0a;
@@ -34,7 +38,6 @@ body {
 /* top bar */
 .topbar {
   background-color: rgb(0, 0, 0);
-  /* border-bottom: 2px solid white; */
   color: rgb(255, 248, 105);
   font-family: var(--font1);
   font-weight: 400;
@@ -45,7 +48,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 3;
+  z-index: 2;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -69,7 +72,10 @@ body {
   position: absolute;
   width: 170px;
   margin-left: 60rem;
-  margin-top: 8rem;
+  margin-top: 10rem;
+  /* right: 25rem;
+  top: 10rem;
+  width: 170px; */
   z-index: 2;
 }
 
@@ -95,7 +101,8 @@ body {
   box-shadow: 10px 9px 0;
   padding: 14px 20px;
   position: fixed;
-  width: 90rem;
+  width: calc(100% - 40px);
+  max-width: 1400px;
   top: 50px;
   left: 0;
   right: 0;
@@ -111,20 +118,181 @@ body {
   color: black;
 }
 
-.brand {
+/* .brand {
   font-size: 18px;
   font-weight: bold;
   color: black;
+} */
+.brand {
+  font-family: var(--font3);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.02em;
 }
 
 .shop-link {
-  font-size: 16px;
-  color: black;
+  font-family: var(--font3);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--black);
   text-decoration: none;
+  padding: 6px 18px;
+  border: 2px solid var(--black);
+  border-radius: 50px;
+  background: var(--black);
+  color: var(--cream);
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .shop-link:hover {
-  text-decoration: underline;
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--black);
+}
+
+/* sidebar */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 200;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 100vh;
+  background: var(--cream);
+  border-right: 2px solid var(--black);
+  box-shadow: 6px 0 0 var(--black);
+  z-index: 201;
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-110%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+/* header logo + nama toko */
+.sidebar-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 24px 24px;
+  /* border-bottom: 2px solid var(--black); */
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  background: none;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  box-shadow: 3px 3px 0 var(--black);
+  transition: all 0.15s ease;
+}
+
+.sidebar-close:hover {
+  background: var(--yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.sidebar-logo {
+  width: 150px;
+}
+
+.sidebar-brand {
+  font-family: var(--font3);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.02em;
+}
+
+/* nav */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  flex: 1;
+}
+
+.sidebar-item {
+  display: block;
+  padding: 16px 24px;
+  border-top: 2px solid var(--black);
+  text-decoration: none;
+  color: var(--black);
+  font-family: var(--font2);
+  font-size: 30px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  position: relative;
+  background: var(--cream);
+}
+
+.border-bottom {
+  border-bottom: 2px solid var(--black);
+}
+
+.sidebar-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 0 var(--black);
+  background: var(--yellow);
+  z-index: 1;
+}
+
+/* social media */
+.sidebar-socmed {
+  display: flex;
+  gap: 12px;
+  padding: 24px;
+  border-top: 2px solid var(--black);
+}
+
+.socmed-icon {
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  box-shadow: 3px 3px 0 var(--black);
+  transition: all 0.15s ease;
+}
+
+.socmed-icon:hover {
+  background: var(--yellow);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
 }
 
 /* hero */
@@ -132,9 +300,9 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to top, #ffcd35 0%, #ffffff 55%, #ffffff 100%);
+  background: linear-gradient(to top, #ffcd35 0%, #ffffff 80%, #ffffff 100%);
   overflow: hidden;
-  z-index: -2;
+  z-index: 0;
 }
 
 .title {
@@ -162,7 +330,7 @@ body {
 .header-under {
   font-size: 25px;
   color: black;
-  font-family: var(--font3);
+  font-family: var(--font4);
   margin-bottom: 10px;
   font-weight: 500;
 }
@@ -177,44 +345,33 @@ body {
 
 .header-btn {
   font-size: 16px;
+  margin: 13px;
   color: black;
-  background-color: white;
+  background-color: var(--yellow);
   box-shadow: 9px 10px 0 black;
+  border: 2px solid black;
   padding: 10px 20px;
-  margin: 5px;
   border-radius: 8px;
   cursor: pointer;
   font-family: var(--font3);
-  font-weight: 500;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .header-btn:hover {
-  background-color: black;
-  color: white;
+  transform: translate(9px, 10px);
+  box-shadow: 0px 0px 0 black;
 }
 
 /* kelebihan */
-.keunggulan {
+.superiority {
   background-color: var(--black);
   padding: 100px 80px;
   position: relative;
   overflow: hidden;
 }
 
-/* dekorasi kanji besar di belakang */
-.keunggulan::before {
-  content: "麺";
-  position: absolute;
-  font-size: 400px;
-  color: rgba(255, 205, 53, 0.06);
-  font-family: var(--font2);
-  top: -60px;
-  right: -40px;
-  pointer-events: none;
-  line-height: 1;
-}
-
-.keunggulan-badge {
+.superiority-badge {
   display: inline-block;
   background-color: var(--yellow);
   color: var(--black);
@@ -226,16 +383,17 @@ body {
   border: 2px solid var(--yellow-dark);
 }
 
-.keunggulan-title {
+.superiority-title {
   font-family: var(--font2);
   font-weight: 500;
   font-size: 5rem;
   color: var(--white);
   line-height: 1.05;
   margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
-.keunggulan-sub {
+.superiority-sub {
   font-family: var(--font3);
   font-size: 25px;
   color: #aaaaaa;
@@ -244,13 +402,13 @@ body {
   font-weight: 300;
 }
 
-.keunggulan-grid {
+.superiority-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-.keunggulan-card {
+.superiority-card {
   background-color: #111111;
   border: 2px solid #222;
   border-radius: 12px;
@@ -262,12 +420,12 @@ body {
   overflow: hidden;
 }
 
-.keunggulan-card:hover {
+.superiority-card:hover {
   transform: translateY(-6px);
   border-color: var(--yellow);
 }
 
-.keunggulan-card::after {
+.superiority-card::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -280,7 +438,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-.keunggulan-card:hover::after {
+.superiority-card:hover::after {
   transform: scaleX(1);
 }
 
@@ -329,7 +487,7 @@ body {
   stroke-width: 2 !important;
 }
 
-.keunggulan-card h3 {
+.superiority-card h3 {
   font-family: var(--font4);
   font-size: 35px;
   font-weight: 500;
@@ -337,7 +495,7 @@ body {
   margin-bottom: 10px;
 }
 
-.keunggulan-card p {
+.superiority-card p {
   font-family: var(--font3);
   font-size: 19px;
   color: #bbbbbb;
@@ -355,18 +513,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
-/* .menu::before {
-  content: "食";
-  position: absolute;
-  font-size: 380px;
-  color: rgba(0, 0, 0, 0.04);
-  font-family: var(--font2);
-  bottom: -60px;
-  left: -40px;
-  pointer-events: none;
-  line-height: 1;
-} */
 
 .menu-header {
   text-align: center;
@@ -388,6 +534,7 @@ body {
   color: var(--black);
   margin-bottom: 10px;
   line-height: 1.05;
+  letter-spacing: 1px;
 }
 
 .menu-sub {
@@ -426,7 +573,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  height: 360px;
+  height: 300px;
 }
 
 .menu-img-placeholder {
@@ -462,7 +609,7 @@ body {
 
 .menu-tag {
   font-family: var(--font3);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--red);
@@ -477,6 +624,7 @@ body {
   color: var(--black);
   margin-bottom: 8px;
   line-height: 1.2;
+  letter-spacing: 1px;
 }
 
 .menu-desc {
@@ -484,7 +632,7 @@ body {
   font-size: 14px;
   color: var(--gray-dark);
   line-height: 1.6;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 18px;
 }
 
@@ -546,22 +694,25 @@ body {
   box-shadow: 12px 12px 0 var(--yellow);
 }
 
-
 /* cara masak */
-.cara-masak {
+.steps {
   background-color: var(--yellow);
   padding: 100px 80px;
   border-top: 3px solid var(--black);
   border-bottom: 3px solid var(--black);
+  background-image: url("img/cara_masak.png");
+  background-repeat: repeat;
+  background-size: 1000px;
+  opacity: 1;
 }
 
-.cara-masak-header {
+.steps-header {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 60px;
 }
 
-.cara-kanji {
+.steps-kanji {
   font-family: var(--font1);
   font-size: 20px;
   color: var(--red);
@@ -570,7 +721,7 @@ body {
   font-weight: 700;
 }
 
-.cara-title {
+.steps-title {
   font-family: var(--font2);
   font-size: 54px;
   color: var(--black);
@@ -578,7 +729,7 @@ body {
   margin-bottom: 16px;
 }
 
-.cara-sub {
+.steps-sub {
   font-family: var(--font3);
   font-size: 17px;
   color: #333;
@@ -586,7 +737,7 @@ body {
   font-weight: 300;
 }
 
-.cara-steps {
+.steps-steps {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -632,18 +783,20 @@ body {
 }
 
 .step-content h4 {
-  font-family: var(--font2);
-  font-size: 22px;
+  font-family: var(--font4);
+  font-weight: 700;
+  font-size: 26px;
   color: var(--black);
   margin-bottom: 6px;
 }
 
 .step-content p {
-  font-family: var(--font3);
-  font-size: 15px;
-  color: #444;
+  font-family: var(--font2);
+  font-size: 17px;
+  color: #343434;
   line-height: 1.6;
   font-weight: 300;
+  letter-spacing: 0.5pt;
 }
 
 .step-line {
@@ -657,3 +810,847 @@ body {
   padding-left: 90px;
 }
 
+/* testimoni */
+.testimoni {
+  background-color: var(--white);
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.testi-kanji {
+  font-family: var(--font1);
+  font-size: 20px;
+  color: var(--red);
+  letter-spacing: 6px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.testi-title {
+  font-family: var(--font2);
+  font-size: 58px;
+  color: var(--black);
+  margin-bottom: 50px;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  text-align: left;
+}
+
+.testi-card {
+  background-color: var(--black);
+  border-color: var(--yellow);
+  box-shadow: 8px 8px 0 var(--yellow);
+  border-radius: 14px;
+  padding: 30px 26px;
+  transition: transform 0.2s ease;
+}
+
+.testi-card:hover {
+  transform: translateY(-5px);
+}
+
+.testi-stars {
+  font-size: 22px;
+  color: var(--yellow);
+  margin-bottom: 14px;
+}
+
+.testi-featured .testi-stars {
+  color: var(--yellow);
+}
+
+.testi-text {
+  font-family: var(--font3);
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.7;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+
+.testi-featured .testi-text {
+  color: var(--white);
+}
+
+.testi-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testi-avatar {
+  background-color: var(--yellow);
+  color: var(--black);
+  font-family: var(--font2);
+  font-size: 16px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--black);
+  flex-shrink: 0;
+}
+
+.testi-user strong {
+  display: block;
+  font-family: var(--font3);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.testi-user span {
+  font-family: var(--font3);
+  font-size: 13px;
+  color: var(--white);
+  font-weight: 300;
+}
+
+/* banner */
+.cta-banner {
+  background-color: rgb(255, 13, 0);
+  border-top: 3px solid var(--black);
+  border-bottom: 3px solid var(--black);
+  padding: 100px 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-kanji {
+  font-family: var(--font3);
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.cta-deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+}
+
+.cta-img {
+  width: 350px;
+  object-fit: contain;
+}
+
+.cta-title {
+  font-family: var(--font2);
+  font-size: 68px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.cta-sub {
+  font-family: var(--font3);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cta-btn-main {
+  background-color: var(--yellow);
+  color: var(--black);
+  border: 2px solid var(--black);
+  font-family: var(--font3);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 7px 7px 0 var(--black);
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.cta-btn-main:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--black);
+}
+
+.cta-btn-sec {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  font-family: var(--font3);
+  font-size: 18px;
+  font-weight: 500;
+  padding: 16px 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cta-btn-sec:hover {
+  background-color: var(--white);
+  color: var(--red);
+}
+
+.cta-deco {
+  font-family: var(--font2);
+  font-size: 180px;
+  color: rgba(255, 255, 255, 0.08);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* .cta-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.cta-wave svg {
+  width: 100%;
+  height: 80px;
+} */
+
+/* footer */
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 70px 80px 30px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 30px;
+}
+
+.footer-logo-text {
+  font-family: var(--font2);
+  font-size: 36px;
+  color: var(--yellow);
+  margin-bottom: 8px;
+}
+
+.footer-tagline {
+  font-family: var(--font3);
+  margin-right: 120px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 300;
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav ul li a {
+  font-family: var(--font3);
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  transition: color 0.2s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: var(--yellow);
+}
+
+.footer-sosmed p {
+  font-family: var(--font3);
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 12px;
+  font-weight: 300;
+}
+
+.sosmed-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sosmed-links a {
+  font-family: var(--font3);
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.sosmed-links a:hover {
+  color: var(--yellow);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  font-family: var(--font3);
+  font-size: 13px;
+  color: #fff;
+  font-weight: 300;
+}
+
+.footer-jp {
+  font-family: var(--font1);
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* =============================================
+   RESPONSIVE CSS - Tambahkan ke bawah style.css
+   Breakpoints:
+   - Mobile  : max-width 768px
+   - Tablet  : 769px – 1024px
+   - Desktop : 1025px ke atas (sudah ada)
+   ============================================= */
+
+/* ─── 1. NAVBAR ─────────────────────────────── */
+@media (max-width: 1024px) {
+  .navbar {
+    width: calc(100% - 32px);
+    top: 44px;
+    padding: 10px 16px;
+    box-shadow: 6px 6px 0;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .shop-link {
+    font-size: 13px;
+    padding: 5px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: calc(100% - 24px);
+    top: 40px;
+    padding: 8px 14px;
+    box-shadow: 4px 4px 0;
+    border-radius: 40px;
+  }
+
+  .brand {
+    font-size: 15px;
+  }
+
+  .shop-link {
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+
+  .hamburger {
+    font-size: 18px;
+  }
+
+  .logo {
+    margin-left: 11rem;
+    margin-top: 7rem;
+    width: 120px;
+  }
+}
+
+/* ─── 2. HERO ────────────────────────────────── */
+/* Gambar hero tidak diubah, hanya font disesuaikan */
+@media (max-width: 1024px) {
+  .header-title {
+    font-size: 20px;
+  }
+
+  .header-up {
+    font-size: 24px;
+  }
+
+  .header-under {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* .hero-section {
+    height: 730px;
+  } */
+  .header-title {
+    font-size: 36px;
+    padding: 0 1px;
+    line-height: 1.15;
+  }
+
+  .header-up {
+    font-size: 21px;
+  }
+
+  .header-under {
+    font-size: 19px;
+    margin-top: 8px;
+  }
+
+  .star {
+    font-size: 25px;
+  }
+
+  .header-btn {
+    font-size: 13px;
+    box-shadow: 6px 7px 0 black;
+    padding: 8px 16px;
+    margin: 8px 6px;
+  }
+
+  .title {
+    width: 90%;
+  }
+}
+
+/* @media (max-width: 1024px) {
+  .header-title {
+    font-size: 48px;
+  }
+
+  .header-up {
+    font-size: 24px;
+  }
+
+  .header-under {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 36px;
+    padding: 0 1px;
+    line-height: 1.15;
+  }
+
+  .header-up {
+    font-size: 15px;
+  }
+
+  .header-under {
+    font-size: 14px;
+    padding: 5px 0;
+  }
+
+  .star {
+    font-size: 25px;
+  }
+
+  .header-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+    box-shadow: 6px 7px 0 black;
+    margin: 8px 6px;
+  }
+
+  .title {
+    width: 90%;
+  }
+} */
+
+/* ─── 3. KEUNGGULAN ──────────────────────────── */
+@media (max-width: 1024px) {
+  .superiority {
+    padding: 70px 40px;
+  }
+
+  .superiority-title {
+    font-size: 3.5rem;
+  }
+
+  .superiority-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Judul tetap di kiri */
+  .superiority-badge,
+  .superiority-title,
+  .superiority-sub {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .superiority {
+    padding: 60px 20px;
+  }
+
+  .superiority-badge {
+    font-size: 20px;
+  }
+
+  .superiority-title {
+    font-size: 2.6rem;
+  }
+
+  .superiority-sub {
+    font-size: 16px;
+    margin-bottom: 36px;
+  }
+
+  .superiority-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 14px;
+  }
+
+  .superiority-card {
+    padding: 22px 14px;
+  }
+
+  .superiority-card h3 {
+    font-size: 24px;
+  }
+
+  .superiority-card p {
+    font-size: 14px;
+  }
+
+  .k-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* ─── 4. MENU ────────────────────────────────── */
+/* Background tidak terpengaruh, hanya grid kotaknya */
+@media (max-width: 1024px) {
+  .menu {
+    padding: 70px 40px;
+  }
+
+  .menu-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .menu-title {
+    font-size: 46px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding: 60px 16px;
+  }
+
+  .menu-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .menu-title {
+    font-size: 36px;
+  }
+
+  .menu-img-wrap {
+    height: 220px;
+  }
+
+  .menu-cta-btn {
+    font-size: 14px;
+  }
+}
+
+/* ─── 5. CARA MASAK ──────────────────────────── */
+/* Background tidak terpengaruh, gambar tetap di kiri teks di kanan */
+@media (max-width: 1024px) {
+  .steps {
+    padding: 70px 40px;
+  }
+
+  .step-icon {
+    width: 130px;
+    height: 130px;
+  }
+
+  .steps-title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .steps {
+    padding: 60px 16px;
+  }
+
+  .steps-title {
+    font-size: 33px;
+  }
+
+  .steps-sub {
+    font-size: 15px;
+  }
+
+  .step-wrap {
+    gap: 12px;
+  }
+
+  .step-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .step {
+    padding: 16px 16px;
+    gap: 14px;
+  }
+
+  .step-num {
+    font-size: 20px;
+    padding: 4px 10px;
+  }
+
+  .step-content h4 {
+    font-size: 15px;
+  }
+
+  .step-content p {
+    font-size: 9px;
+  }
+
+  .step-line {
+    font-size: 16px;
+    padding-left: 50px;
+  }
+}
+
+/* ─── 6. TESTIMONI ───────────────────────────── */
+@media (max-width: 1024px) {
+  .testimoni {
+    padding: 70px 40px;
+  }
+
+  .testi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .testi-title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimoni {
+    padding: 60px 16px;
+  }
+
+  .testi-title {
+    font-size: 34px;
+  }
+
+  .testi-avatar {
+    font-size: 15px;
+  }
+
+  .testi-user strong {
+    font-size: 14px;
+  }
+
+  .testi-user span {
+    font-size: 12px;
+  }
+
+  .testi-stars {
+    font-size: 15px;
+  }
+
+  .testi-text {
+    font-size: 13px;
+  }
+
+  .testi-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ─── 7. CTA BANNER ──────────────────────────── */
+@media (max-width: 1024px) {
+  .cta-banner {
+    padding: 70px 60px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 52px;
+  }
+
+  .cta-btns {
+    justify-content: center;
+  }
+
+  .cta-deco {
+    margin-right: 0;
+    margin-top: 30px;
+    order: 2; /* gambar ke bawah */
+  }
+
+  .cta-img {
+    width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-banner {
+    padding: 60px 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-kanji {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .cta-title {
+    font-size: 38px;
+  }
+
+  .cta-sub {
+    font-size: 15px;
+  }
+
+  .cta-btns {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cta-btn-main,
+  .cta-btn-sec {
+    font-size: 15px;
+    padding: 13px 28px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .cta-deco {
+    margin-right: 0;
+    margin-top: 30px;
+    order: 2; /* gambar tetap ke bawah */
+  }
+
+  .cta-img {
+    width: 200px;
+  }
+}
+
+/* ─── 8. FOOTER ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 50px 40px 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  /* Kolom brand ambil full baris pertama */
+  .footer-top > *:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-logo-text {
+    font-size: 28px;
+  }
+
+  .footer-tagline {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 44px 16px 20px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-top > *:first-child {
+    grid-column: auto;
+  }
+
+  .footer-logo-text {
+    font-size: 26px;
+  }
+
+  .footer-tagline {
+    margin-right: 0;
+    font-size: 14px;
+  }
+
+  .footer-nav ul li a,
+  .footer-sosmed p {
+    font-size: 15px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* ─── SIDEBAR (tetap rapi di semua ukuran) ────── */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80%;
+    box-shadow: 2px 0 0 var(--black);
+  }
+
+  .sidebar-logo {
+    width: 120px;
+  }
+
+  .sidebar-brand {
+    font-size: 23px;
+  }
+
+  .sidebar-item {
+    font-size: 25px;
+  }
+}

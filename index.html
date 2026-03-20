@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ramenku.shop</title>
 
-    <!-- font antonio -->
+    <!-- css -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- font antonio -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -36,17 +38,10 @@
       href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Oswald:wght@200..700&family=Teko:wght@300..700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- unpkg icon -->
-    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
     <!-- top bar -->
-<<<<<<< HEAD
     <div class="topbar">
-=======
-      <div class="topbar">
->>>>>>> 05e87d2954d7eb6c304ae355225ef34c305c3c73
       <p class="topbar-scroll">
         Jika anda berlangganan dengan kami akan mendapatkan diskon sebesar 10%!
       </p>
@@ -57,15 +52,90 @@
 
     <!-- navigasi -->
     <nav class="navbar">
-      <button class="hamburger">&#9776;</button>
-      <p class="brand">ramenku.shop</p>
+      <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
+      <p class="brand">Ramenku.shop</p>
       <a class="shop-link" href="#">Shop</a>
     </nav>
 
+    <!-- overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="img/logo.png" alt="logo" class="sidebar-logo" />
+        <p class="sidebar-brand">Ramenku.shop</p>
+        <button class="sidebar-close" onclick="toggleSidebar()">&#10005;</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-item" href="#">Tentang Kami</a>
+        <a class="sidebar-item" href="#">Produk Kami</a>
+        <a class="sidebar-item" href="#">Komentar</a>
+        <div class="border-bottom">
+          <a class="sidebar-item" href="#">Kontak Kami</a>
+        </div>
+      </nav>
+
+      <div class="sidebar-socmed">
+        <a href="#" class="socmed-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="20" height="20" x="2" y="2" rx="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+          </svg>
+        </a>
+        <a href="#" class="socmed-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
+            />
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+          </svg>
+        </a>
+        <a href="#" class="socmed-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            />
+          </svg>
+        </a>
+      </div>
+    </aside>
+
     <!-- hero -->
     <section class="hero-section">
-      <img class="bg-image" src="img/hero.png" alt="background" />
-
+      <img class="bg-image" src="img/bg.png" alt="background" />
       <main class="title">
         <header>
           <span class="star"> &#9733; &#9733; &#9733; &#9733; &#9733; </span>
@@ -81,17 +151,17 @@
     </section>
 
     <!-- keunggulan -->
-    <section class="keunggulan">
-      <div class="keunggulan-badge">
+    <section class="superiority">
+      <div class="superiority-badge">
         <span>なぜ</span>
       </div>
-      <h2 class="keunggulan-title">Kenapa Pilih Kami?</h2>
-      <p class="keunggulan-sub">
+      <h2 class="superiority-title">Kenapa Pilih Kami?</h2>
+      <p class="superiority-sub">
         Bukan sekadar ramen biasa. Kami masak dengan hati.
       </p>
 
-      <div class="keunggulan-grid">
-        <article class="keunggulan-card k1">
+      <div class="superiority-grid">
+        <article class="superiority-card k1">
           <div class="k-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +189,7 @@
             buatan untuk cita rasa yang dalam dan otentik.
           </p>
         </article>
-        <article class="keunggulan-card k2">
+        <article class="superiority-card k2">
           <div class="k-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +215,7 @@
             Kesegaran bukan pilihan, itu standar kami.
           </p>
         </article>
-        <article class="keunggulan-card k3">
+        <article class="superiority-card k3">
           <div class="k-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -207,7 +277,7 @@
             sempurna untuk kamu yang sibuk tapi tetap mau makan sehat.
           </p>
         </article>
-        <article class="keunggulan-card k4">
+        <article class="superiority-card k4">
           <div class="k-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -258,17 +328,19 @@
           >
             <img
               class="menu-img-placeholder"
-              src="img/spicy_ramen.png"
+              src="img/ramen_besar/spicy_besar.png"
               alt="gambar"
             />
             <div class="menu-badge">PEDAS</div>
           </div>
           <div class="menu-info">
-            <span class="menu-tag">Tonkotsu</span>
-            <h3 class="menu-name">Tonkotsu Shoyu Classic</h3>
+            <span class="menu-tag">辛い</span>
+            <h3 class="menu-name">Spicy Ramen</h3>
             <p class="menu-desc">
-              Kaldu tulang babi creamy dengan kecap asin Jepang, chashu lembut,
-              dan telur marinated.
+              Kaldu tulang sapi pekat yang dipadukan dengan saus cabai merah
+              khas Jepang yang menghasilkan sensasi pedas menggigit namun tetap
+              gurih di lidah. Dilengkapi chashu pedas berlapis, dan taburan
+              bawang putih goreng crispy yang bikin tiap suapan makin nagih.
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 45.000</span>
@@ -281,22 +353,24 @@
           <div
             class="menu-img-wrap"
             style="
-              background: linear-gradient(to top, #ffd12a 0%, #ffffff 100%);
+              background: linear-gradient(to top, #f4df44 0%, #ffffff 100%);
             "
           >
             <img
               class="menu-img-placeholder"
-              src="img/chicken_ramen.png"
+              src="img/ramen_besar/chicken_besar.png"
               alt="gambar"
             />
             <div class="menu-badge">CHICKEN</div>
           </div>
           <div class="menu-info">
-            <span class="menu-tag">Miso</span>
-            <h3 class="menu-name">Miso Spicy Tantanmen</h3>
+            <span class="menu-tag">チキン</span>
+            <h3 class="menu-name">Chickan Ramen</h3>
             <p class="menu-desc">
-              Kuah miso pedas dengan daging cincang, wijen, dan cabai merah yang
-              bikin nagih.
+              Kaldu ayam kampung bening yang dimasak perlahan dengan jahe dan
+              daun bawang. Disajikan dengan irisan ayam panggang juicy yang
+              diasinkan semalaman, nori lembaran, tauge segar, dan percikan
+              minyak wijen harum yang memanjakan selera.
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 48.000</span>
@@ -314,20 +388,84 @@
           >
             <img
               class="menu-img-placeholder"
-              src="img/beef_ramen.png"
+              src="img/ramen_besar/beef_besar.png"
               alt="gambar"
             />
             <div class="menu-badge">BEEF</div>
           </div>
           <div class="menu-info">
-            <span class="menu-tag">Shio</span>
-            <h3 class="menu-name">Shio Veggie Delight</h3>
+            <span class="menu-tag">牛</span>
+            <h3 class="menu-name">Beef Ramen</h3>
             <p class="menu-desc">
-              Kuah kaldu sayuran bening dengan tofu sutra, jamur shiitake, dan
-              bayam segar.
+              Irisan daging sapi pilihan yang ditumis dengan bumbu khas dan
+              diletakkan di atas kaldu kaya rempah yang dalam rasanya. Perpaduan
+              jamur enoki kenyal, potongan daun bawang segar, dan bawang goreng
+              crispy menciptakan tekstur yang beragam dalam setiap suapan.
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 40.000</span>
+              <button class="menu-btn">+ Keranjang</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div
+            class="menu-img-wrap"
+            style="
+              background: linear-gradient(to top, #faeaa9 0%, #ffffff 100%);
+            "
+          >
+            <img
+              class="menu-img-placeholder"
+              src="img/ramen_besar/creamy_besar.png"
+              alt="gambar"
+            />
+            <div class="menu-badge">CREAMY</div>
+          </div>
+          <div class="menu-info">
+            <span class="menu-tag">クリーミー</span>
+            <h3 class="menu-name">Creamy Ramen</h3>
+            <p class="menu-desc">
+              Kuah creamy berbasis susu segar yang kental, lembut, dan gurih di
+              setiap tegukan. Perpaduan kaldu ayam dengan krim pilihan
+              menghasilkan tekstur yang smooth dan ringan di perut. Disajikan
+              dengan chashu lembut, telur marinated setengah matang, keju yang
+              lumer.
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 45.000</span>
+              <button class="menu-btn">+ Keranjang</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div
+            class="menu-img-wrap"
+            style="
+              background: linear-gradient(to top, #ffc209 0%, #ffffff 100%);
+            "
+          >
+            <img
+              class="menu-img-placeholder"
+              src="img/ramen_besar/curry_besar.png"
+              alt="gambar"
+            />
+            <div class="menu-badge">CURRY</div>
+          </div>
+          <div class="menu-info">
+            <span class="menu-tag">カレー</span>
+            <h3 class="menu-name">Curry Ramen</h3>
+            <p class="menu-desc">
+              Perpaduan unik antara ramen dan kari Jepang klasik yang
+              menghasilkan kuah berwarna kuning keemasan dengan aroma rempah
+              yang mengundang selera. Dilengkapi ayam katsu goreng crispy,
+              potongan kentang lembut, wortel manis, dan bawang bombay karamel
+              yang menambah kedalaman rasa.
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 48.000</span>
               <button class="menu-btn">+ Keranjang</button>
             </div>
           </div>
@@ -342,73 +480,20 @@
           >
             <img
               class="menu-img-placeholder"
-              src="img/creamy_ramen.png"
-              alt="gambar"
-            />
-            <div class="menu-badge">CREAMY</div>
-          </div>
-          <div class="menu-info">
-            <span class="menu-tag">Tonkotsu</span>
-            <h3 class="menu-name">Tonkotsu Shoyu Classic</h3>
-            <p class="menu-desc">
-              Kaldu tulang babi creamy dengan kecap asin Jepang, chashu lembut,
-              dan telur marinated.
-            </p>
-            <div class="menu-footer">
-              <span class="menu-price">Rp 45.000</span>
-              <button class="menu-btn">+ Keranjang</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="menu-card">
-          <div
-            class="menu-img-wrap"
-            style="
-              background: linear-gradient(to top, #63ff47 0%, #ffffff 100%);
-            "
-          >
-            <img
-              class="menu-img-placeholder"
-              src="img/curry_ramen.png"
-              alt="gambar"
-            />
-            <div class="menu-badge">CURRY</div>
-          </div>
-          <div class="menu-info">
-            <span class="menu-tag">Miso</span>
-            <h3 class="menu-name">Miso Spicy Tantanmen</h3>
-            <p class="menu-desc">
-              Kuah miso pedas dengan daging cincang, wijen, dan cabai merah yang
-              bikin nagih.
-            </p>
-            <div class="menu-footer">
-              <span class="menu-price">Rp 48.000</span>
-              <button class="menu-btn">+ Keranjang</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="menu-card">
-          <div
-            class="menu-img-wrap"
-            style="
-              background: linear-gradient(to top, #fd9e4a 0%, #ffffff 100%);
-            "
-          >
-            <img
-              class="menu-img-placeholder"
-              src="img/seafood_ramen.png"
+              src="img/ramen_besar/seafood_besar.png"
               alt="gambar"
             />
             <div class="menu-badge">SEAFOOD</div>
           </div>
           <div class="menu-info">
-            <span class="menu-tag">Shio</span>
-            <h3 class="menu-name">Shio Veggie Delight</h3>
+            <span class="menu-tag">シーフード</span>
+            <h3 class="menu-name">Seafood Ramen</h3>
             <p class="menu-desc">
-              Kuah kaldu sayuran bening dengan tofu sutra, jamur shiitake, dan
-              bayam segar.
+              Kaldu laut bening yang segar dari rebusan tulang ikan, udang, dan
+              kerang pilihan yang menghasilkan rasa umami laut yang autentik.
+              Topping melimpah berupa udang jumbo, cumi ring, kerang hijau, dan
+              rumput laut segar menjadikan setiap mangkuknya terasa seperti
+              makan di tepi laut Jepang. Ringan namun tetap kaya rasa.
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 40.000</span>
@@ -424,24 +509,28 @@
     </section>
 
     <!-- cara masak -->
-    <section class="cara-masak">
-      <div class="cara-masak-header">
-        <p class="cara-kanji">作り方</p>
-        <h2 class="cara-title">Cara Masak Super Gampang</h2>
-        <p class="cara-sub">
+    <section class="steps">
+      <div class="steps-header">
+        <p class="steps-kanji">作り方</p>
+        <h2 class="steps-title">Cara Masak Super Gampang</h2>
+        <p class="steps-sub">
           Tidak perlu jago masak. Cukup tiga langkah dan ramen sehat sudah siap
           di mejamu.
         </p>
       </div>
 
-      <div class="cara-steps">
+      <div class="steps-steps">
         <div class="step-wrap">
           <img class="step-icon" src="img/masak.png" alt="rebus air" />
           <div class="step">
             <div class="step-num">01</div>
             <div class="step-content">
               <h4>Siapkan bahan</h4>
-              <p>Siapkan ramen instan anda, bebas rasa apa saja.</p>
+              <p>
+                Keluarkan ramen dari kemasan, pisahkan mie dan bumbunya. Siapkan
+                juga topping favoritmu seperti telur, sayuran, atau daging
+                sesuai selera.
+              </p>
             </div>
           </div>
         </div>
@@ -449,62 +538,169 @@
         <div class="step-line">- - - - - - -</div>
 
         <div class="step-wrap">
-          <img
-            class="step-icon"
-            src="img/panci.png"
-            alt="masukkan bumbu"
-          />
+          <img class="step-icon" src="img/panci.png" alt="masukkan bumbu" />
           <div class="step">
             <div class="step-num">02</div>
             <div class="step-content">
               <h4>Didihkan air</h4>
               <p>
-                Didihkan air sebanyak 400ml atau bisa seusaikan.
+                Tuangkan air sebanyak 400ml ke dalam panci lalu nyalakan kompor
+                dengan api sedang. Tunggu hingga air benar-benar mendidih
+                sebelum memasukkan mie.
               </p>
             </div>
           </div>
         </div>
 
         <div class="step-line">- - - - - - -</div>
-        
+
         <div class="step-wrap">
-          <img
-          class="step-icon"
-          src="img/bumbu.png"
-          alt="tuang dan nikmati"
-          />
+          <img class="step-icon" src="img/bumbu.png" alt="tuang dan nikmati" />
           <div class="step">
             <div class="step-num">03</div>
             <div class="step-content">
               <h4>Masukan bumbu dan mie</h4>
               <p>
-                Tuang bumbu dan mie kedalam panci lalu aduk dan rebus selama 6 menit
+                Setelah air mendidih, masukkan mie dan rebus selama 3-4 menit
+                hingga mie matang sempurna. Lalu masukkan bumbu dan aduk rata
+                hingga semua tercampur.
               </p>
             </div>
           </div>
         </div>
         <div class="step-line">- - - - - - -</div>
-        
+
         <div class="step-wrap">
           <img
-          class="step-icon"
-          src="img/nikmati.png"
-          alt="tuang dan nikmati"
+            class="step-icon"
+            src="img/nikmati.png"
+            alt="tuang dan nikmati"
           />
           <div class="step">
-            <div class="step-num">03</div>
+            <div class="step-num">04</div>
             <div class="step-content">
               <h4>Tuang & Nikmati</h4>
               <p>
-                Tuang air panas, tutup 3 menit. Aduk, tambah topping favoritmu,
-                dan selamat menikmati!
+                Angkat dan tuangkan ramen ke dalam mangkuk saji. Tambahkan
+                topping pilihanmu di atasnya, dan ramen sehat siap dinikmati
+                selagi hangat bersama keluarga!
               </p>
             </div>
           </div>
         </div>
       </div>
-      
-
     </section>
+
+    <!-- testimoni -->
+    <section class="testimoni">
+      <p class="testi-kanji">お客様の声</p>
+      <h2 class="testi-title">Kata Mereka</h2>
+
+      <div class="testi-grid">
+        <article class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-text">
+            "Ramennya enak banget! Kuahnya kaya rasa, mie-nya kenyal. Sudah
+            langganan setiap minggu."
+          </p>
+          <div class="testi-user">
+            <div class="testi-avatar">AM</div>
+            <div>
+              <strong>Anjay Mabar</strong>
+              <span>Jakarta Selatan</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-text">
+            "Gak nyangka ramen instan bisa seenak ini. Berasa makan di restoran
+            Jepang beneran. Highly recommended!"
+          </p>
+          <div class="testi-user">
+            <div class="testi-avatar">KL</div>
+            <div>
+              <strong>Kapal Laut</strong>
+              <span>Surabaya</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testi-text">
+            "Cocok buat anak kos! Harganya terjangkau tapi rasanya premium. Miso
+            spicy-nya juara!"
+          </p>
+          <div class="testi-user">
+            <div class="testi-avatar">SD</div>
+            <div>
+              <strong>Saya Sendiri</strong>
+              <span>Yogyakarta</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- banner -->
+    <section class="cta-banner">
+      <div class="cta-inner">
+        <p class="cta-kanji">今すぐ</p>
+        <h2 class="cta-title">Pesan Sekarang,<br />Gratis Ongkir!</h2>
+        <p class="cta-sub">
+          Minimum order Rp 100.000 gratis ongkir ke seluruh Indonesia.
+        </p>
+        <div class="cta-btns">
+          <button class="cta-btn-main">
+            Pesan Sekarang <i data-lucide="shopping-cart" class="btn-icon"></i>
+          </button>
+          <button class="cta-btn-sec">Lihat Promo</button>
+        </div>
+      </div>
+      <div class="cta-deco">
+        <img src="img/kucing.png" alt="ramen" class="cta-img" />
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <p class="footer-logo-text">ramenku.shop</p>
+          <p class="footer-tagline">
+            Ramenku bukan sekadar makanan biasa. Kami hadir untuk menemani
+            harimu dengan ramen sehat, lezat, dan mudah disajikan kapan saja dan
+            di mana saja.
+          </p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Produk kami</a></li>
+            <li><a href="#">komentar</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </nav>
+        <div class="footer-sosmed">
+          <p>Ikuti kami di:</p>
+          <div class="sosmed-links">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ramenku.shop — All rights reserved.</p>
+        <p class="footer-jp">
+          弊社製品を信頼していただき、ありがとうございます。
+        </p>
+      </div>
+    </footer>
+
+    <!-- javascript -->
+    <script src="script.js"></script>
   </body>
 </html>

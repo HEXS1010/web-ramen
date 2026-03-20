@@ -171,6 +171,62 @@ body {
   box-shadow: 5px 5px 0 var(--black);
 }
 
+.cart-icon:hover {
+  transform: scale(1.1);
+}
+
+.cart-icon {
+  display: inline-block;
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(40%, -40%); 
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 50%;
+  font-family: "Oswald", sans-serif;
+}
+
+/*kuantitas cartnya*/
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.qty-control button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #ffd700;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.qty-control button:hover {
+  transform: scale(1.1);
+}
+
+.qty-control span {
+  min-width: 20px;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+}
+
 
 /* CART SIDEBAR */
 .cart-sidebar {

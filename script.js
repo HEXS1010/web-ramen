@@ -16,3 +16,8 @@ function toggleSidebar() {
     document.body.style.overflow = "";
   }
 }
+
+function toggleCart() {
+  const cart = document.getElementById("cartSidebar");
+  cart.classList.toggle("active");
+}

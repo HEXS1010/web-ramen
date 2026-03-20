@@ -54,8 +54,31 @@
     <nav class="navbar">
       <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
       <p class="brand">Ramenku.shop</p>
-      <a class="shop-link" href="#">Shop</a>
+      <div class="nav-right">
+  <a class="shop-link" href="#">Shop</a>
+
+  <div class="cart-icon" onclick="toggleCart()">
+  🛒
+</div>
+</div>
     </nav>
+
+    <!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Cart</h2>
+    <button onclick="toggleCart()">✕</button>
+  </div>
+
+  <div class="cart-content" id="cartContent">
+    <p class="empty-text">Your cart is empty</p>
+  </div>
+
+  <div class="cart-footer">
+    <p>Subtotal: Rp 0</p>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
 
     <!-- overlay -->
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>

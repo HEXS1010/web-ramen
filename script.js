@@ -1,5 +1,5 @@
 /* =========================
-   SIDEBAR NAVIGATION
+  SIDEBAR NAVIGATION
 ========================= */
 function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
@@ -17,7 +17,7 @@ function toggleSidebar() {
 
 
 /* =========================
-   CART SIDEBAR TOGGLE
+  CART SIDEBAR TOGGLE
 ========================= */
 function toggleCart() {
   const cart = document.getElementById("cartSidebar");
@@ -26,7 +26,7 @@ function toggleCart() {
 
 
 /* =========================
-   (DATA)
+   (DATA) keranjng
 ========================= */
 let cart = [];
 
@@ -88,7 +88,7 @@ function renderCart() {
 
 
 /* =========================
-   UPDATE BADGE
+   UPDATE BADGE 
 ========================= */
 function updateCartBadge() {
   const badge = document.getElementById("cartBadge");
@@ -103,7 +103,7 @@ function updateCartBadge() {
 
 
 /* =========================
-   kuantitas perubahann
+   QUANTITY CONTROL
 ========================= */
 function increaseQty(index) {
   cart[index].qty += 1;
@@ -121,7 +121,7 @@ function decreaseQty(index) {
 
 
 /* =========================
-   hapus item dari cart
+   REMOVE ITEM
 ========================= */
 function removeItem(index) {
   cart.splice(index, 1);
@@ -131,7 +131,7 @@ function removeItem(index) {
 
 
 /* =========================
-   ADD TO CART
+   ADD TO CART 
 ========================= */
 function addToCart(name, price) {
   const existingItem = cart.find(item => item.name === name);
@@ -149,7 +149,7 @@ function addToCart(name, price) {
 
 
 /* =========================
-   UPDATE BADGE 
+   UPDATE BADGE yg bru
 ========================= */
 function updateCartBadge() {
   const badge = document.getElementById("cartBadge");
@@ -170,7 +170,7 @@ function updateCartBadge() {
 
 
 /* =========================
-   FLEXibel kuantitas change
+  flexsibel qty 
 ========================= */
 function changeQty(index, change) {
   cart[index].qty += change;

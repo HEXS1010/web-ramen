@@ -63,33 +63,30 @@
       </button>
       <p class="brand">Ramenku.shop</p>
       <div class="nav-right">
-
-  <a class="shop-link" href="#">Shop</a>
-
-  <div class="cart-icon" onclick="toggleCart()">
-  🛒
-  <span class="cart-badge" id="cartBadge">0</span>
-</div>
-</div>
+        <a class="shop-link" href="#">Shop</a>
+        <div class="cart-icon" onclick="toggleCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+      </div>
     </nav>
 
     <!-- CART SIDEBAR -->
-<div class="cart-sidebar" id="cartSidebar">
-  <div class="cart-header">
-    <h2>Cart</h2>
-    <button onclick="toggleCart()">✕</button>
-  </div>
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h2>Pesanan Anda</h2>
+        <button onclick="toggleCart()">✕</button>
+      </div>
 
-  <div class="cart-content" id="cartContent">
-    <p class="empty-text">Your cart is empty</p>
-  </div>
+      <div class="cart-content" id="cartContent">
+        <p class="empty-text">Anda Belum Memesan</p>
+      </div>
 
-  <div class="cart-footer">
-    <p>Subtotal: Rp 0</p>
-    <button class="checkout-btn">Checkout</button>
-  </div>
-</div>
-
+      <div class="cart-footer">
+        <p>Total: Rp 0</p>
+        <button class="checkout-btn">Checkout</button>
+      </div>
+    </div>
 
     <!-- overlay -->
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
@@ -148,7 +145,7 @@
         </header>
       </main>
     </section>
-    <!-- &#9733; &#9733; &#9733; &#9733; &#9733; -->
+
     <!-- keunggulan -->
     <section class="superiority">
       <div class="superiority-badge">
@@ -237,8 +234,11 @@
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 45.000</span>
-              <button class="menu-btn" onclick="addToCart('Spicy Ramen', 45000)">
-              + Keranjang 
+              <button
+                class="menu-btn"
+                onclick="addToCart('Spicy Ramen', 45000)"
+              >
+                + Keranjang
               </button>
             </div>
           </div>
@@ -269,7 +269,10 @@
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 48.000</span>
-              <button class="menu-btn" onclick="addToCart('Chicken Ramen', 48000)">
+              <button
+                class="menu-btn"
+                onclick="addToCart('Chicken Ramen', 48000)"
+              >
                 + Keranjang
               </button>
             </div>
@@ -334,7 +337,10 @@
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 45.000</span>
-              <button class="menu-btn" onclick="addToCart('Creamy Ramen', 45000)">
+              <button
+                class="menu-btn"
+                onclick="addToCart('Creamy Ramen', 45000)"
+              >
                 + Keranjang
               </button>
             </div>
@@ -367,7 +373,10 @@
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 48.000</span>
-              <button class="menu-btn" onclick="addToCart('Curry Ramen', 48000)">
+              <button
+                class="menu-btn"
+                onclick="addToCart('Curry Ramen', 48000)"
+              >
                 + Keranjang
               </button>
             </div>
@@ -400,7 +409,10 @@
             </p>
             <div class="menu-footer">
               <span class="menu-price">Rp 40.000</span>
-              <button class="menu-btn" onclick="addToCart('Seafood Ramen', 40000)">
+              <button
+                class="menu-btn"
+                onclick="addToCart('Seafood Ramen', 40000)"
+              >
                 + Keranjang
               </button>
             </div>

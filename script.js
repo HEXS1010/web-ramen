@@ -1,32 +1,67 @@
 /* =========================
-  SIDEBAR NAVIGATION
+   SIDEBAR NAVIGATION
 ========================= */
 function toggleSidebar() {
   const sidebar = document.querySelector(".sidebar");
   const overlay = document.querySelector(".sidebar-overlay");
+  const isActive = sidebar.classList.contains("active");
 
-  sidebar.classList.toggle("active");
-  overlay.classList.toggle("active");
+  closeCart();
 
-  if (sidebar.classList.contains("active")) {
-    document.body.style.overflow = "hidden";
-  } else {
+  if (isActive) {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
     document.body.style.overflow = "";
+  } else {
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
   }
 }
 
 
 /* =========================
-  CART SIDEBAR TOGGLE
+   HELPER: TUTUP SIDEBAR
 ========================= */
-function toggleCart() {
-  const cart = document.getElementById("cartSidebar");
-  cart.classList.toggle("active");
+function closeSidebar() {
+  document.querySelector(".sidebar").classList.remove("active");
+  document.querySelector(".sidebar-overlay").classList.remove("active");
+  document.body.style.overflow = "";
 }
 
 
 /* =========================
-   (DATA) keranjng
+   CART SIDEBAR TOGGLE
+========================= */
+function toggleCart() {
+  const cartSidebar = document.getElementById("cartSidebar");
+  const cartOverlay = document.getElementById("cartOverlay");
+  const isActive = cartSidebar.classList.contains("active");
+
+  closeSidebar();
+
+  if (isActive) {
+    closeCart();
+  } else {
+    cartSidebar.classList.add("active");
+    cartOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+
+/* =========================
+   HELPER: TUTUP CART
+========================= */
+function closeCart() {
+  document.getElementById("cartSidebar").classList.remove("active");
+  document.getElementById("cartOverlay").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+
+/* =========================
+   DATA CART
 ========================= */
 let cart = [];
 
@@ -35,10 +70,20 @@ let cart = [];
    ADD TO CART
 ========================= */
 function addToCart(name, price) {
-  cart.push({ name, price });
+  const existingItem = cart.find(item => item.name === name);
+
+  if (existingItem) {
+    existingItem.qty += 1;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
 
   renderCart();
-  toggleCart(); // buka sidebar otomatis
+  updateCartBadge();
+
+  if (!document.getElementById("cartSidebar").classList.contains("active")) {
+    toggleCart();
+  }
 }
 
 
@@ -52,8 +97,8 @@ function renderCart() {
   cartContent.innerHTML = "";
 
   if (cart.length === 0) {
-    cartContent.innerHTML = `<p class="empty-text">Your cart is empty</p>`;
-    subtotalText.innerText = "Subtotal: Rp 0";
+    cartContent.innerHTML = `<p class="empty-text">Anda Belum Memesan</p>`;
+    subtotalText.innerText = "Total: Rp 0";
     return;
   }
 
@@ -67,61 +112,39 @@ function renderCart() {
         <div>
           <p class="cart-item-name">${item.name}</p>
           <span class="cart-item-price">Rp ${(item.price * item.qty).toLocaleString()}</span>
-
           <div class="qty-control">
-            <button onclick="decreaseQty(${index})">-</button>
+            <button onclick="changeQty(${index}, -1)">-</button>
             <span>${item.qty}</span>
-            <button onclick="increaseQty(${index})">+</button>
+            <button onclick="changeQty(${index}, 1)">+</button>
           </div>
         </div>
-
         <button class="remove-btn" onclick="removeItem(${index})">✕</button>
       </div>
     `;
   });
 
-  subtotalText.innerText = `Subtotal: Rp ${total.toLocaleString()}`;
-
-  // update badge setiap render
+  subtotalText.innerText = "Subtotal: Rp " + total.toLocaleString();
   updateCartBadge();
 }
 
 
 /* =========================
-   UPDATE BADGE 
+   UBAH KUANTITAS ITEM
 ========================= */
-function updateCartBadge() {
-  const badge = document.getElementById("cartBadge");
+function changeQty(index, change) {
+  cart[index].qty += change;
 
-  let totalItems = 0;
-  cart.forEach(item => {
-    totalItems += item.qty;
-  });
-
-  badge.innerText = totalItems;
-}
-
-
-/* =========================
-   QUANTITY CONTROL
-========================= */
-function increaseQty(index) {
-  cart[index].qty += 1;
-  renderCart();
-}
-
-function decreaseQty(index) {
-  if (cart[index].qty > 1) {
-    cart[index].qty -= 1;
-  } else {
-    cart.splice(index, 1);
+  if (cart[index].qty < 1) {
+    cart[index].qty = 1;
   }
+
   renderCart();
+  updateCartBadge();
 }
 
 
 /* =========================
-   REMOVE ITEM
+   HAPUS ITEM
 ========================= */
 function removeItem(index) {
   cart.splice(index, 1);
@@ -131,25 +154,7 @@ function removeItem(index) {
 
 
 /* =========================
-   ADD TO CART 
-========================= */
-function addToCart(name, price) {
-  const existingItem = cart.find(item => item.name === name);
-
-  if (existingItem) {
-    existingItem.qty += 1;
-  } else {
-    cart.push({ name, price, qty: 1 });
-  }
-
-  renderCart();
-  updateCartBadge();
-  toggleCart();
-}
-
-
-/* =========================
-   UPDATE BADGE yg bru
+   UPDATE BADGE CART
 ========================= */
 function updateCartBadge() {
   const badge = document.getElementById("cartBadge");
@@ -160,25 +165,5 @@ function updateCartBadge() {
   });
 
   badge.innerText = totalQty;
-
-  if (totalQty === 0) {
-    badge.style.display = "none";
-  } else {
-    badge.style.display = "flex";
-  }
-}
-
-
-/* =========================
-  flexsibel qty 
-========================= */
-function changeQty(index, change) {
-  cart[index].qty += change;
-
-  if (cart[index].qty <= 0) {
-    cart.splice(index, 1);
-  }
-
-  renderCart();
-  updateCartBadge(); 
+  badge.style.display = totalQty === 0 ? "none" : "flex";
 }

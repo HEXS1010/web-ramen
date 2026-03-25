@@ -158,6 +158,7 @@ function removeItem(index) {
 ========================= */
 function updateCartBadge() {
   const badge = document.getElementById("cartBadge");
+  if (!badge) return;
 
   let totalQty = 0;
   cart.forEach(item => {

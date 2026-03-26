@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk Kami - ramenku.shop</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="produk.css">
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+  <!-- ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <p class="topbar-scroll">Diskon 10% untuk pelanggan setia ramenku.shop!</p>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <button class="hamburger" onclick="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <p class="brand">Ramenku.shop</p>
+  <div class="nav-right">
+    <a class="shop-link" href="produk.html">Shop</a>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cartBadge" class="cart-badge">0</span>
+    </div>
+  </div>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <img src="img/logo.png" alt="logo" class="sidebar-logo">
+    <p class="sidebar-brand">Ramenku.shop</p>
+    <button class="sidebar-close" onclick="toggleSidebar()"> &#10005; </button>
+  </div>
+  <nav class="sidebar-nav">
+    <a class="sidebar-item" href="index.html">Tentang Kami</a>
+    <a class="sidebar-item" href="produk.html">Produk Kami</a>
+    <a class="sidebar-item" href="#">Komentar</a>
+    <div class="border-bottom">
+      <a class="sidebar-item" href="#">Kontak Kami</a>
+    </div>
+  </nav>
+  <div class="sidebar-socmed">
+    <a href="#" class="socmed-icon"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" class="socmed-icon"><i class="fa-brands fa-youtube"></i></a>
+    <a href="#" class="socmed-icon"><i class="fa-brands fa-facebook-f"></i></a>
+  </div>
+</aside>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Pesanan Anda</h2>
+    <button onclick="toggleCart()"> ✕ </button>
+  </div>
+  <div class="cart-content" id="cartContent">
+    <p class="empty-text">Anda Belum Memesan</p>
+  </div>
+  <div class="cart-footer">
+    <p>Subtotal: Rp 0</p>
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="produk-hero">
+  <h1>SELAMAT BELANJA</h1>
+</section>
+
+<!-- KATEGORI -->
+<section class="produk-kategori">
+  <div class="kategori-wrapper">
+    <div class="kategori-card">
+      <img src="img/ramen sachet.png" alt="Ramen Sachet">
+      <p>Ramen Sachet</p>
+    </div>
+    <div class="kategori-card">
+      <img src="img/ramen cup.png" alt="Ramen Cup">
+      <p>Ramen Cup</p>
+    </div>
+    <div class="kategori-card">
+      <img src="img/ramen3.png" alt="Signature">
+      <p>Signature Menu</p>
+    </div>
+    <div class="kategori-card">
+      <img src="img/bundles.png" alt="Bundles">
+      <p>Bundles</p>
+    </div>
+    <div class="kategori-card">
+      <img src="img/merch.png" alt="Merchandise">
+      <p>Merchandise</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section class="search-section">
+  <input type="text" placeholder="Cari menu..." id="searchInput">
+</section>
+
+<!-- DAFTAR PRODUK UTAMA -->
+<div class="product-grid" id="productGrid">
+
+  <!-- ========================= RAMEN BESAR ========================= -->
+  
+  <article class="menu-card" data-category="signature">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #88a06b 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_besar/veggie_.besar.png" alt="Veggie Ramen Big" />
+      <div class="menu-badge">HEALTHY</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 野菜 </span>
+      <h3 class="menu-name">Veggie Ramen Big</h3>
+      <p class="menu-desc">Porsi besar ramen sehat dengan kaldu sayuran murni yang kaya nutrisi dan topping jamur shiitake.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 45.000</span>
+        <button class="menu-btn" onclick="addToCart('Veggie Ramen Big', 45000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="signature">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #d9e4c1 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_besar/tonkotsu_besar.png" alt="Tonkotsu Ramen Big" />
+      <div class="menu-badge">BEST</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 豚骨 </span>
+      <h3 class="menu-name">Tonkotsu Ramen Big</h3>
+      <p class="menu-desc">Kaldu tulang putih yang creamy khas Kyushu dalam porsi besar, dimasak perlahan selama 12 jam.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 48.000</span>
+        <button class="menu-btn" onclick="addToCart('Tonkotsu Ramen Big', 48000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #fd3c3c 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_besar/spicy_besar.png" alt="Spicy Ramen Big" />
+      <div class="menu-badge">HOT</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 辛い </span>
+      <h3 class="menu-name">Spicy Ramen Big</h3>
+      <p class="menu-desc">Porsi besar dengan kuah cabai merah khas Jepang yang menggigit dan chashu pedas berlapis.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 45.000</span>
+        <button class="menu-btn" onclick="addToCart('Spicy Ramen Big', 45000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #f2a1a1 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_besar/miso_besar.png" alt="Miso Ramen Big" />
+      <div class="menu-badge">UMAMI</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 味噌 </span>
+      <h3 class="menu-name">Miso Ramen Big</h3>
+      <p class="menu-desc">Porsi besar dengan fermentasi kedelai Jepang yang memberikan rasa gurih dan hangat di setiap suapan.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 42.000</span>
+        <button class="menu-btn" onclick="addToCart('Miso Ramen Big', 42000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #54a4ff 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_besar/seafood_besar.png" alt="Seafood Ramen Big" />
+      <div class="menu-badge">FRESH</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> シーフード </span>
+      <h3 class="menu-name">Seafood Ramen Big</h3>
+      <p class="menu-desc">Kombinasi porsi besar kaldu laut bening dengan topping udang jumbo dan cumi yang segar.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 48.000</span>
+        <button class="menu-btn" onclick="addToCart('Seafood Ramen Big', 48000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- ========================= RAMEN KECIl ========================= -->
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #1a1a1a 0%, #800000 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_kecil/garlic_ramen.png" alt="Garlic Ramen Small" />
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> にんにく </span>
+      <h3 class="menu-name">Garlic Ramen Small</h3>
+      <p class="menu-desc">Sensasi bawang putih goreng yang kuat dalam kemasan hemat yang pas untuk dibawa-bawa.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 15.500</span>
+        <button class="menu-btn" onclick="addToCart('Garlic Ramen Small', 15500)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #2d6a4f 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_kecil/curry_ramen.png" alt="Curry Ramen Small" />
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> カレー </span>
+      <h3 class="menu-name">Curry Ramen Small</h3>
+      <p class="menu-desc">Varian kari dengan rempah pilihan dalam porsi ekonomis untuk menemani aktivitasmu.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 16.000</span>
+        <button class="menu-btn" onclick="addToCart('Curry Ramen Small', 16000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #a8dadc 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_kecil/creamy_ramen.png" alt="Creamy Ramen Small" />
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> クリーミー </span>
+      <h3 class="menu-name">Creamy Ramen Small</h3>
+      <p class="menu-desc">Kuah lembut berbasis susu yang ringan di perut, hadir dalam versi kemasan kecil.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 17.000</span>
+        <button class="menu-btn" onclick="addToCart('Creamy Ramen Small', 17000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #ffcd35 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_kecil/chicken_ramen.png" alt="Chicken Ramen Small" />
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> チキン </span>
+      <h3 class="menu-name">Chicken Ramen Small</h3>
+      <p class="menu-desc">Klasik kaldu ayam yang gurih, kini dalam kemasan vertikal yang lebih simpel.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 15.000</span>
+        <button class="menu-btn" onclick="addToCart('Chicken Ramen Small', 15000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #6c584c 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_kecil/beef_ramen.png" alt="Beef Ramen Small" />
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 牛 </span>
+      <h3 class="menu-name">Beef Ramen Small</h3>
+      <p class="menu-desc">Cita rasa daging sapi panggang yang kuat dalam ukuran yang pas untuk camilan sehat.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 16.500</span>
+        <button class="menu-btn" onclick="addToCart('Beef Ramen Small', 16500)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #e63946 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_kecil/spicy_ramen.png" alt="Spicy Ramen Small" />
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 辛い </span>
+      <h3 class="menu-name">Spicy Ramen Small</h3>
+      <p class="menu-desc">Versi hemat dari Spicy Ramen andalan kami dengan sensasi pedas yang tetap juara.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 16.000</span>
+        <button class="menu-btn" onclick="addToCart('Spicy Ramen Small', 16000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="sachet">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #fb5607 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_kecil/seafood_ramen.png" alt="Seafood Ramen Small" />
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> シーフード </span>
+      <h3 class="menu-name">Seafood Ramen Small</h3>
+      <p class="menu-desc">Segarnya kaldu laut dalam kemasan praktis yang siap dinikmati kapan saja.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 17.500</span>
+        <button class="menu-btn" onclick="addToCart('Seafood Ramen Small', 17500)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+   <!-- ========================= RAMEN CUP ========================= -->
+
+  <article class="menu-card" data-category="cup">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #3d2b1f 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_cup/beef_cup.png" alt="Beef Ramen Cup" />
+      <div class="menu-badge">CUP</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 牛 </span>
+      <h3 class="menu-name">Beef Ramen Cup</h3>
+      <p class="menu-desc">Praktis dan nikmat. Rasa daging sapi pilihan dengan kaldu yang kaya rempah dalam kemasan cup.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 20.000</span>
+        <button class="menu-btn" onclick="addToCart('Beef Ramen Cup', 20000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="cup">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #1b4332 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_cup/curry_cup.png" alt="Curry Ramen Cup" />
+      <div class="menu-badge">CUP</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> カレー </span>
+      <h3 class="menu-name">Curry Ramen Cup</h3>
+      <p class="menu-desc">Nikmati kelezatan kari Jepang di mana saja. Kuah kental dan aroma rempah yang menggoda.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 19.000</span>
+        <button class="menu-btn" onclick="addToCart('Curry Ramen Cup', 19000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="cup">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #ffb703 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_cup/chicken_cup.png" alt="Chicken Ramen Cup" />
+      <div class="menu-badge">CUP</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> チキン </span>
+      <h3 class="menu-name">Chicken Ramen Cup</h3>
+      <p class="menu-desc">Cita rasa kaldu ayam klasik yang hangat dan ringan, siap dinikmati dalam waktu 3 menit.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 18.500</span>
+        <button class="menu-btn" onclick="addToCart('Chicken Ramen Cup', 18500)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="cup">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #4895ef 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_cup/creamy_cup.png" alt="Creamy Ramen Cup" />
+      <div class="menu-badge">CUP</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> クリーミー </span>
+      <h3 class="menu-name">Creamy Ramen Cup</h3>
+      <p class="menu-desc">Tekstur kuah yang lembut dan gurih dalam kemasan praktis. Cocok untuk teman lemburmu.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 21.000</span>
+        <button class="menu-btn" onclick="addToCart('Creamy Ramen Cup', 21000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="cup">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #d00000 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/ramen_cup/spicy_cup.png" alt="Spicy Ramen Cup" />
+      <div class="menu-badge">CUP</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 辛い </span>
+      <h3 class="menu-name">Spicy Ramen Cup</h3>
+      <p class="menu-desc">Sensasi pedas yang praktis. Kuah merah merona dengan rasa pedas yang membangkitkan semangat.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 19.500</span>
+        <button class="menu-btn" onclick="addToCart('Spicy Ramen Cup', 19500)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+   <!-- ========================= RAMENKU MERCH ========================= -->
+
+
+   <article class="menu-card" data-category="merch">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #1e3a8a 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/merchendise/t-shirt.png" alt="Spicy Ramen Cup" />
+      <div class="menu-badge">MERCH</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 辛い </span>
+      <h3 class="menu-name">T-shirt Ramenku</h3>
+      <p class="menu-desc">Sensasi pedas yang praktis. Kuah merah merona dengan rasa pedas yang membangkitkan semangat.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 120.000</span>
+        <button class="menu-btn" onclick="addToCart('T-shirt Ramenku', 120000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+   <article class="menu-card" data-category="merch">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #2d3436 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/merchendise/gantungan kunci 2.png" alt="Spicy Ramen Cup" />
+      <div class="menu-badge">MERCH</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 辛い </span>
+      <h3 class="menu-name">Keychain Gemas</h3>
+      <p class="menu-desc">Sensasi pedas yang praktis. Kuah merah merona dengan rasa pedas yang membangkitkan semangat.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 39.000</span>
+        <button class="menu-btn" onclick="addToCart('Keychain Gemas', 39000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+   <article class="menu-card" data-category="merch">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #2d3436 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/merchendise/gantungan kunci 1.png" alt="Spicy Ramen Cup" />
+      <div class="menu-badge">MERCH</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 辛い </span>
+      <h3 class="menu-name">Gantungan Kunci Navy</h3>
+      <p class="menu-desc">Sensasi pedas yang praktis. Kuah merah merona dengan rasa pedas yang membangkitkan semangat.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 34.000</span>
+        <button class="menu-btn" onclick="addToCart('Gantungan Kunci Navy', 34000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+   <article class="menu-card" data-category="merch">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #c2b280 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/merchendise/totebag.png" alt="Spicy Ramen Cup" />
+      <div class="menu-badge">MERCH</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 辛い </span>
+      <h3 class="menu-name">Totebag Beige</h3>
+      <p class="menu-desc">Sensasi pedas yang praktis. Kuah merah merona dengan rasa pedas yang membangkitkan semangat.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 59.000</span>
+        <button class="menu-btn" onclick="addToCart('Totebag Beige', 59000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+
+</div>
+<script src="produk.js"></script>
+</body>
+</html>

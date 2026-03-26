@@ -1,5 +1,5 @@
 let cart = [];
-let currentCategory = "all"; // Menyimpan kategori yang sedang dipilih
+let currentCategory = "all"; // nyimpen kategori yang sedang dipilih
 
 /* =========================
    SIDEBAR NAVIGATION
@@ -58,7 +58,7 @@ function closeCart() {
 }
 
 /* =========================
-   CART LOGIC (SINKRON DENGAN INDEX)
+   CART LOGIC 
 ========================= */
 function addToCart(name, price) {
   const existingItem = cart.find(item => item.name === name);
@@ -137,7 +137,6 @@ function updateCartBadge() {
    SEARCH & FILTER LOGIC (DIPERBARUI)
 ========================= */
 
-// Fungsi Utama untuk Menerapkan Semua Filter (Search + Kategori)
 function applyFilters() {
   const keyword = document.getElementById("searchInput").value.toLowerCase();
   const cards = document.querySelectorAll(".menu-card");
@@ -152,10 +151,9 @@ function applyFilters() {
     if (currentCategory === "all") {
       matchesCategory = true;
     } else if (currentCategory === "sachet") {
-      // Masukkan Ramen Sachet (Small) dan Signature (Ramen Big) ke dalam filter Sachet
       matchesCategory = (categoryAttr === "sachet" || categoryAttr === "signature");
     } else if (currentCategory === "signature" || currentCategory === "bundle") {
-      // Biarkan kosong untuk sementara karena belum ada produknya
+      // kosong sementara karena belum ada produknya
       matchesCategory = false;
     } else {
       // Untuk cup dan merch
@@ -175,7 +173,7 @@ function applyFilters() {
 /**
  * Fungsi untuk memfilter berdasarkan kategori
  * @param {string} category - ID kategori (sachet, cup, merch, dll)
- * @param {HTMLElement} element - Elemen kartu yang diklik untuk efek visual
+ * @param {HTMLElement} element -
  */
 function filterCategory(category, element) {
   if (currentCategory === category) {
@@ -184,7 +182,7 @@ function filterCategory(category, element) {
     currentCategory = category;
   }
   
-  // Efek visual: Tandai kartu kategori yang aktif
+  // Efek visual: 
   const allCatCards = document.querySelectorAll(".kategori-card");
   allCatCards.forEach(c => {
     c.style.backgroundColor = ""; 
@@ -199,7 +197,7 @@ function filterCategory(category, element) {
   applyFilters();
 }
 
-// Inisialisasi: Menghubungkan Klik Kategori Card secara otomatis
+// Menghubungkan Klik Kategori Card secara otomatis
 document.addEventListener("DOMContentLoaded", () => {
   const catCards = document.querySelectorAll(".kategori-card");
   
@@ -219,5 +217,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Event Listener untuk Kolom Pencarian
+// Kolom Pencarian
 document.getElementById("searchInput").addEventListener("input", applyFilters);

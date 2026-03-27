@@ -1,5 +1,5 @@
 let cart = [];
-let currentCategory = "all"; // nyimpen kategori yang sedang dipilih
+let currentCategory = "all"; 
 
 /* =========================
    SIDEBAR NAVIGATION
@@ -134,7 +134,7 @@ function updateCartBadge() {
 }
 
 /* =========================
-   SEARCH & FILTER LOGIC (DIPERBARUI)
+   SEARCH & FILTER LOGIC 
 ========================= */
 
 function applyFilters() {
@@ -144,20 +144,21 @@ function applyFilters() {
   cards.forEach(card => {
     const name = card.querySelector(".menu-name").innerText.toLowerCase();
     const categoryAttr = card.dataset.category;
-
+    
     let matchesCategory = false;
 
-    // Logika pengelompokan kategori
     if (currentCategory === "all") {
       matchesCategory = true;
     } else if (currentCategory === "sachet") {
       matchesCategory = (categoryAttr === "sachet" || categoryAttr === "signature");
-    } else if (currentCategory === "signature" || currentCategory === "bundle") {
-      // kosong sementara karena belum ada produknya
-      matchesCategory = false;
-    } else {
-      // Untuk cup dan merch
-      matchesCategory = (categoryAttr === currentCategory);
+    } else if (currentCategory === "cup") {
+      matchesCategory = (categoryAttr === "cup");
+    } else if (currentCategory === "merch") {
+      matchesCategory = (categoryAttr === "merch");
+    } else if (currentCategory === "signature") {
+      matchesCategory = (categoryAttr === "signature");
+    } else if (currentCategory === "paket") {
+      matchesCategory = (categoryAttr === "paket");
     }
 
     const matchesSearch = name.includes(keyword);
@@ -170,11 +171,6 @@ function applyFilters() {
   });
 }
 
-/**
- * Fungsi untuk memfilter berdasarkan kategori
- * @param {string} category - ID kategori (sachet, cup, merch, dll)
- * @param {HTMLElement} element -
- */
 function filterCategory(category, element) {
   if (currentCategory === category) {
     currentCategory = "all";
@@ -182,7 +178,6 @@ function filterCategory(category, element) {
     currentCategory = category;
   }
   
-  // Efek visual: 
   const allCatCards = document.querySelectorAll(".kategori-card");
   allCatCards.forEach(c => {
     c.style.backgroundColor = ""; 
@@ -197,21 +192,17 @@ function filterCategory(category, element) {
   applyFilters();
 }
 
-// Menghubungkan Klik Kategori Card secara otomatis
 document.addEventListener("DOMContentLoaded", () => {
   const catCards = document.querySelectorAll(".kategori-card");
-  
   catCards.forEach(card => {
     card.addEventListener("click", function() {
       const text = this.querySelector("p").innerText.toLowerCase();
       let cat = "all";
-      
       if (text.includes("sachet")) cat = "sachet";
       else if (text.includes("cup")) cat = "cup";
-      else if (text.includes("signature")) cat = "signature";
-      else if (text.includes("bundles")) cat = "bundle";
+      else if (text.includes("populer")) cat = "signature";
+      else if (text.includes("paket")) cat = "paket";
       else if (text.includes("merchandise")) cat = "merch";
-      
       filterCategory(cat, this);
     });
   });

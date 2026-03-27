@@ -4,16 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produk Kami - ramenku.shop</title>
+
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="produk.css">
+
   <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton+SC&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
-  <!-- ICON -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- icon awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 </head>
 <body>
 
@@ -41,7 +47,9 @@
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 <aside class="sidebar">
   <div class="sidebar-header">
-    <img src="img/logo.png" alt="logo" class="sidebar-logo">
+    <a href="index.html">
+      <img src="img/logo.png" alt="logo" class="sidebar-logo">
+    </a>
     <p class="sidebar-brand">Ramenku.shop</p>
     <button class="sidebar-close" onclick="toggleSidebar()"> &#10005; </button>
   </div>
@@ -92,13 +100,13 @@
       <img src="img/ramen cup.png" alt="Ramen Cup">
       <p>Ramen Cup</p>
     </div>
-    <div class="kategori-card">
-      <img src="img/ramen3.png" alt="Signature">
-      <p>Signature Menu</p>
+    <div class="kategori-card" id="star-card">
+      <img src="img/star 2.png" alt="Menu Populer">
+      <p>Menu Populer</p>
     </div>
     <div class="kategori-card">
       <img src="img/bundles.png" alt="Bundles">
-      <p>Bundles</p>
+      <p>Paket</p>
     </div>
     <div class="kategori-card">
       <img src="img/merch.png" alt="Merchandise">
@@ -385,6 +393,45 @@
       </div>
     </div>
   </article>
+  
+  
+
+  <!-- paket  -->
+  <article class="menu-card" data-category="paket">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #3d2b1f 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="img/paket 1.png" alt="Beef Ramen Cup" />
+      <div class="menu-badge">CUP</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> 牛 </span>
+      <h3 class="menu-name">Beef Ramen Cup</h3>
+      <p class="menu-desc">Praktis dan nikmat. Rasa daging sapi pilihan dengan kaldu yang kaya rempah dalam kemasan cup.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 20.000</span>
+        <button class="menu-btn" onclick="addToCart('Beef Ramen Cup', 20000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+  <article class="menu-card" data-category="paket">
+    <div class="menu-img-wrap" style="background: linear-gradient(to top, #1b4332 0%, #ffffff 100%);">
+      <img class="menu-img-placeholder" src="" alt="Curry Ramen Cup" />
+      <div class="menu-badge">CUP</div>
+    </div>
+    <div class="menu-info">
+      <span class="menu-tag"> カレー </span>
+      <h3 class="menu-name">Curry Ramen Cup</h3>
+      <p class="menu-desc">Nikmati kelezatan kari Jepang di mana saja. Kuah kental dan aroma rempah yang menggoda.</p>
+      <div class="menu-footer">
+        <span class="menu-price">Rp 19.000</span>
+        <button class="menu-btn" onclick="addToCart('Curry Ramen Cup', 19000)">+ Keranjang</button>
+      </div>
+    </div>
+  </article>
+
+
+
+
 
    <!-- ========================= RAMENKU MERCH ========================= -->
 
@@ -453,8 +500,46 @@
     </div>
   </article>
 
-
 </div>
+
+<!-- footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <p class="footer-logo-text">ramenku.shop</p>
+          <p class="footer-tagline">
+            Ramenku bukan sekadar makanan biasa. Kami hadir untuk menemani
+            harimu dengan ramen sehat, lezat, dan mudah disajikan kapan saja dan
+            di mana saja.
+          </p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Produk kami</a></li>
+            <li><a href="#">komentar</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </nav>
+        <div class="footer-sosmed">
+          <p>Ikuti kami di:</p>
+          <div class="sosmed-links">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 ramenku.shop Desaigned by Bit By Bit - All rights
+          reserved.
+        </p>
+        <p class="footer-jp">
+          弊社製品を信頼していただき、ありがとうございます。
+        </p>
+      </div>
+    </footer>
 <script src="produk.js"></script>
 </body>
 </html>
